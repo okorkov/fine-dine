@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  party_size: 1
+  time: MyString
+  date: 2021-01-26 13:35:31
+  booked: false
+  reservation_id: 1
+  restaurant_id: 1
+
+two:
+  party_size: 1
+  time: MyString
+  date: 2021-01-26 13:35:31
+  booked: false
+  reservation_id: 1
+  restaurant_id: 1
