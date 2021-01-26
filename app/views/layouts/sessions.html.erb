@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>Fine Dine Log in / Sign Up </title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -15,6 +15,14 @@
   </head>
 
   <body>
-    <%= yield %>
+
+    <%=render 'sessions_navbar'%>
+
+    <div class="container">
+      <%= yield %>
+    </div>
+
+    <%=render 'sessions_footer'%>
+
   </body>
 </html>
