@@ -1,6 +1,6 @@
 class RestaurantsController < ApplicationController
 
-  layout 'application'
+  layout 'restaurant'
 
   def index
    render layout: 'welcome'
