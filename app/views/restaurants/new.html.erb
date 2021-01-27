@@ -1,7 +1,12 @@
 <div class="card">
   <div class="card-body">
-
     <div class="display-4 text-center ">Register a New Restaurant:</div><br>
+
+    <%if @restaurant.errors.any?%>
+      <% @restaurant.errors.full_messages.each do |message|%>
+        <div class="alert alert-danger"><%=message %></div>
+      <%end%>
+    <%end%>
 
     <%=form_for @restaurant, class:'form-group' do |f|%>
     <%=f.text_field :name, class:"form-control", placeholder:'Name of the Restaurant', :required => true %>
@@ -15,13 +20,15 @@
     <%=f.text_field :picture, class:"form-control", placeholder:'Enter a URL for Profile Picture', :required => true %>
     <%=f.number_field :capacity, class:"form-control", placeholder:'Capacity of the Restaurant', :required => true %>
     <%=label_tag "Select City or Add if Non-exists", nil, class:"form-control text-center"%>
-    <%=f.collection_select :city, City.all, :id, :name, {prompt: "Select City"} , prompt: "Select City", class: "form-control"%>
-    <%=f.text_field :city, class:"form-control", placeholder:"Add New City"%>
+    <%=f.fields_for :city do |o|%>
+    <%=o.collection_select :id, City.all, :id, :name, {prompt: "Select City"} , prompt: "Select City", class: "form-control"%>
+    <%=o.text_field :name, class:"form-control", placeholder:"Add New City"%>
+    <%end%>
     <div class="text-center"><br>
       <%=f.submit 'Register Restaurant', class: "btn btn-primary "%>
     </div>
     <%end%>
 
+    </div>
   </div>
-</div>
 </div>
