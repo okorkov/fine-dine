@@ -1,19 +1,18 @@
 
-<div class="display-4 text-center">Welcome Restaurateur!</div>
-<br>
-<div class="display-5 text-center">Sign In</div>
-<br>
-<%=form_tag"restaurant/session", method:'post', class:'form-group' do%>
-<%= text_field_tag :email, nil, class:'form-control', placeholder:'Email Address', :required => true %>
-<br>
-<%= text_field_tag :password , nil, class:'form-control', placeholder:'Password', :required => true %>
-<br>
-<%=submit_tag 'Log In', class: "btn btn-primary"%>
-<%end%>
 
-
-
-<div class="text-center display-5">
-  <p>Don't Have an Account?</p>
-  <h3><%=link_to 'Sign Up', new_restaurant_path%></h3>
+<div class="card-deck">
+ <div class="row">
+<%@restaurants.each do |rest|%>
+ <div class="col-sm">
+  <div class="card">
+    
+    <%=link_to(image_tag(rest.picture, size: "260x200"), restaurant_path(rest) ,:class=>"card-img-top") %>
+    <div class="card-body">
+      <h5 class="card-title"><%=rest.name%></h5>
+      <p class="card-text"><%=link_to "#{City.find(rest.city_id).name}"%></p>
+    </div>
+  </div>
+    </div>
+ <%end%>
+</div>
 </div>

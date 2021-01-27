@@ -1,0 +1,19 @@
+
+<div class="display-4 text-center">Welcome Restaurateur!</div>
+<br>
+<div class="display-5 text-center">Sign In</div>
+<br>
+<%=form_tag"restaurant/session", method:'post', class:'form-group' do%>
+<%= text_field_tag :email, nil, class:'form-control', placeholder:'Email Address', :required => true %>
+<br>
+<%= text_field_tag :password , nil, class:'form-control', placeholder:'Password', :required => true %>
+<br>
+<%=submit_tag 'Log In', class: "btn btn-primary"%>
+<%end%>
+
+
+
+<div class="text-center display-5">
+  <p>Don't Have an Account?</p>
+  <h3><%=link_to 'Sign Up', new_restaurant_path%></h3>
+</div>

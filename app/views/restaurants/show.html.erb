@@ -1,0 +1,20 @@
+<div class="card-group">
+  <div class="card">
+    <h5 class="card-title display-3"><%=@restaurant.name%></h5>
+    <img class="card-img-top" src="<%=@restaurant.picture%>" alt="Card image cap">
+    <div class="card-body">
+      <p class="card-text">Phone Number: <%=@restaurant.phone_formatter(@restaurant.phone_number)%></p>
+      <p class="card-text">Email: <%=@restaurant.email%></p>
+      <p class="card-text">City: <%=link_to "#{City.find(@restaurant.city_id).name}"%></p>
+      <p class="card-text">Address: <%=@restaurant.address%></p>
+      <p class="card-text">Hours of Operation: from <%=@restaurant.opening_time%> to <%=@restaurant.closing_time%></p>
+    </div>
+  </div>
+  <div class="card text-center" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Special title treatment</h5>
+      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+</div>
