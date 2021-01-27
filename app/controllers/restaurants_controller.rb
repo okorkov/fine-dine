@@ -1,7 +1,9 @@
 class RestaurantsController < ApplicationController
 
-  def index
+  layout 'welcome'
 
+  def index
+    
   end
 
   def new
@@ -9,7 +11,7 @@ class RestaurantsController < ApplicationController
   end
 
   def create
-    
+
   end
 
 end

@@ -1,5 +1,8 @@
 class GuestsController < ApplicationController
 
+  layout 'welcome'
+
+
   def index
 
   end
