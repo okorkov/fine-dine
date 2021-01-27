@@ -6,7 +6,7 @@ class Restaurant < ApplicationRecord
 
   has_secure_password
 
-  validates :email, :opening_time, :closing_time, :city_id, :phone_number, :address, :picture, :capacity, :name  presence: true
+  validates :email, :opening_time, :closing_time, :city_id, :phone_number, :address, :picture, :capacity, :name, presence: true
   validates :email, uniqueness: true
 
 
