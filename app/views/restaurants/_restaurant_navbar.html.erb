@@ -8,12 +8,15 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <a class="nav-item nav-link active" href="/restaurants">Home</a>
-      <%if params[:id] == current_restaurant.id%>
-      <a class="nav-item nav-link" href="#">Reservations</a>
-      <a class="nav-item nav-link" href="#">Slots</a>
-      <a class="nav-item nav-link" href="#">Edit Information</a>
+      <%if @restaurant%>
+        <%if @restaurant.id == current_restaurant.id%>
+          <a class="nav-item nav-link" href="#">Reservations</a>
+          <a class="nav-item nav-link" href="#">Slots</a>
+          <a class="nav-item nav-link" href="#">Edit Information</a>
+        <%end%>
       <%end%>
       <a class="nav-item nav-link" href="#">Search</a>
+     
     </div>
    
   </div>

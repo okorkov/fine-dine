@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   get '/restaurant-login', to: "welcome#restaurant"
   get '/guest-login', to: "welcome#guest"
   resources :guests, only: [:index, :new, :create]
-  resources :restaurants, only: [:index, :new, :create, :show]
+  resources :restaurants, only: [:index, :new, :create, :show, :destroy]
+  resources :restaurant_sessions, only: [:new, :create, :destroy]
 end

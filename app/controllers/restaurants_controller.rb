@@ -32,6 +32,7 @@ class RestaurantsController < ApplicationController
     end
   end
 
+
   private
 
   def require_login

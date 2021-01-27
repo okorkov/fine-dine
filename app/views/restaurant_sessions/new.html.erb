@@ -3,7 +3,7 @@
 <br>
 <div class="display-5 text-center">Sign In</div>
 <br>
-<%=form_tag"restaurant/session", method:'post', class:'form-group' do%>
+<%=form_tag restaurant_sessions_path, class:'form-group' do%>
 <%= text_field_tag :email, nil, class:'form-control', placeholder:'Email Address', :required => true %>
 <br>
 <%= text_field_tag :password , nil, class:'form-control', placeholder:'Password', :required => true %>
