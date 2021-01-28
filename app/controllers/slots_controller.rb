@@ -14,7 +14,8 @@ class SlotsController < ApplicationController
   end
 
   def create
-    raise params.inspect
+    slot = Slot.create(slot_params)
+    redirect_to restaurant_slots_path(current_restaurant)
   end
 
   def show
@@ -33,6 +34,10 @@ class SlotsController < ApplicationController
 
   def require_login
     render 'access_denied', :layout => false unless session.include? :restaurant_id
+  end
+
+  def slot_params
+    params.require(:slot).permit(:restaurant_id, :time, :party_size, :date)
   end
 
 end
