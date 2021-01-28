@@ -3,9 +3,10 @@ Rails.application.routes.draw do
   root  'welcome#welcome'
   resources :restaurant_sessions, only: [:new, :create, :destroy]
   # resources :guests, only: [:index, :new, :create]
-  resources :restaurants, only: [:index, :new, :show, :destroy] do
-    resources :slots
-  end
   resources :slots, only: [:create]
+  resources :restaurants, only: [:index, :new, :show, :destroy] do
+    resources :slots, only: [:new, :edit, :create, :update, :destroy, :index]
+  end
+  
   
 end
