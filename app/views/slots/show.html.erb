@@ -1,0 +1,14 @@
+
+
+<div class="card"  >
+  <div class="card-body">
+    <div class="text-center">
+      <div class="card-header"> Book this Slot at <%=@restaurant.name%> Restaurant</div><br>
+          <h5 class="card-title"><%=@slot.time%></h5>
+          <p class="card-text"><%=@slot.date.to_datetime.strftime('%b %e %a')%></p>
+          <p class="card-text"><%=@slot.party_size%> people</p>
+          <%= link_to "Make Reservation", nil, class:"btn btn-success bt-lg"%>
+    </div>
+  </div>
+</div>
+

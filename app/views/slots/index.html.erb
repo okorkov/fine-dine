@@ -1,7 +1,7 @@
 <br>
 <div class="text-center"><%=link_to "Create New Slot", new_restaurant_slot_path , class:"btn btn-success btn-lg "%></div>
 <hr>
-<div class="card">
+
   <div class="row">
   <%@slots.sort_by{|s| s.date.to_datetime}.each do |slot|%>
     <div class="col-md-1">
@@ -19,7 +19,7 @@
     </div>
   <%end%>
   </div>
-</div>
+
 
 
 

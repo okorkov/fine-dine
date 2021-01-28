@@ -24,6 +24,7 @@ class SlotsController < ApplicationController
 
   def show
     @slot = Slot.find(params[:id])
+    @restaurant = Restaurant.find_by(params[:restaurant_id])
   end
 
   def edit
