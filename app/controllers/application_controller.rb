@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
     Restaurant.find_by(id: session[:restaurant_id])
   end
 
-  def logged_in?
+  def restaurant_logged_in?
     session[:restaurant_id] != nil
   end
 

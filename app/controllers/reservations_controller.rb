@@ -20,4 +20,9 @@ class ReservationsController < ApplicationController
     raise params.inspect
   end
 
+  private
+
+  def require_login
+    render 'access_denied', :layout => false unless session.include? :restaurant_id
+  end
 end
