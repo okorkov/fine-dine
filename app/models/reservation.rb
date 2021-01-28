@@ -1,7 +1,7 @@
 class Reservation < ApplicationRecord
   belongs_to :restaurant
   belongs_to :guest
-  has_one :slot
+  belongs_to :slot
 
   validates :guest_id, :date, :restaurant_id, presence: true
 

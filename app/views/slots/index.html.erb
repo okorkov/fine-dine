@@ -1,0 +1,9 @@
+<div class="text-center"><%=link_to "Create New Slot", new_restaurant_slot_path , class:"display-4"%></div>
+<hr>
+
+
+<%@slots.each do |slot|%>
+  <%=slot.inspect%>
+  <br>
+<%end%>
+<%=@slots.size%>
