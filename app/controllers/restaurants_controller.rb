@@ -18,11 +18,12 @@ class RestaurantsController < ApplicationController
 
   def create
     @restaurant = Restaurant.new(restaurant_params)
-    if @restaurant.save
+    if @restaurant.valid?
+      @restaurant.save
       session[:restaurant_id] = @restaurant.id
       redirect_to restaurant_path(@restaurant)
     else
-      render :new
+      render :new, layout: 'welcome'
     end
   end
 

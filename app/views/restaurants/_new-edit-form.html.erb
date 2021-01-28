@@ -1,14 +1,14 @@
 <%if @restaurant.errors.any?%>
-      <% @restaurant.errors.full_messages.each do |message|%>
-        <div class="alert alert-danger"><%=message %></div>
-      <%end%>
-    <%end%>
+  <% @restaurant.errors.full_messages.each do |message|%>
+    <div class="alert alert-danger"><%= message %></div>
+  <%end%>
+<%end%>
 
     <%=form_for @restaurant, class:'form-group' do |f|%>
     <%=f.text_field :name, class:"form-control", placeholder:'Name of the Restaurant', :required => true %>
     <%=f.text_field :email, class:"form-control", placeholder:'Email Address', :required => true %>
-    <%=f.text_field :password, class:"form-control", placeholder:'Password' %>
-    <%=f.text_field :password_confirmation, class:"form-control", placeholder:'Confirm Password'%>
+    <%=f.password_field :password, class:"form-control", placeholder:'Password' %>
+    <%=f.password_field :password_confirmation, class:"form-control", placeholder:'Confirm Password'%>
     <%=f.text_field :opening_time, class:"form-control", placeholder:'Opening Time: 24hr Format, Example: 17:00', :required => true %>
     <%=f.text_field :closing_time, class:"form-control", placeholder:'Closing Time: 24hr Format, Example: 23:00', :required => true %>
     <%=f.text_field :phone_number, class:"form-control", placeholder:'Phone Number of the Restaurant', :required => true %>
