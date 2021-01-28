@@ -3,12 +3,11 @@
 <div class="card-deck">
  <div class="row">
 <%@restaurants.each do |rest|%>
- <div class="col-sm">
+ <div class="col-md-3">
   <div class="card">
-    
-    <%=link_to(image_tag(rest.picture, size: "260x200"), restaurant_path(rest) ,:class=>"card-img-top") %>
+    <%=link_to(image_tag(rest.picture, size: "340x270"), restaurant_path(rest) ,:class=>"card-img-top") %>
     <div class="card-body">
-      <h5 class="card-title"><%=rest.name%></h5>
+      <h5 class="card-title"><%=rest.name.capitalize%></h5>
       <p class="card-text"><%=link_to "#{City.find(rest.city_id).name}"%></p>
     </div>
   </div>

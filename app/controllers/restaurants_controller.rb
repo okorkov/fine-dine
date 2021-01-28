@@ -3,6 +3,8 @@ class RestaurantsController < ApplicationController
   before_action :require_login
   skip_before_action :require_login, only: [:show]
 
+ 
+
   layout 'restaurant'
 
   def index
@@ -40,8 +42,9 @@ class RestaurantsController < ApplicationController
   end
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :email, :password, :password_confirmation, :opening_time, :closing_time, :phone_number, :address, :picture, :capacity, city_attributes: [:name, :id])
+    params.require(:restaurant).permit(:name.downcase, :email.downcase, :password, :password_confirmation, :opening_time, :closing_time, :phone_number, :address, :picture, :capacity, city_attributes: [:name, :id])
   end
+
 
 end
 

@@ -8,8 +8,18 @@ class RestaurantSessionsController < ApplicationController
 
   def create
     @restaurant = Restaurant.find_by(email: params[:email])
-    return head(:forbidden) unless @user.authenticate(params[:password])
-    session[:restaurant_id] = @restaurant.id
+    if @restaurant.nil?
+      @error = "No restaurant with this email found"
+      render :new
+    else
+      if @restaurant && @restaurant.authenticate(params[:password])
+      session[:restaurant_id] = @restaurant.id
+      redirect_to restaurant_path(@restaurant)
+      else
+        @error = "Invalid password"
+        render :new
+      end
+    end
   end
 
   def destroy

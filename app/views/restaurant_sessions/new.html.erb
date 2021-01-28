@@ -3,6 +3,9 @@
 <br>
 <div class="display-5 text-center">Sign In</div>
 <br>
+<%if @error%>
+<div class="alert alert-danger"><%=@error%></div>
+<%end%>
 <%=form_tag restaurant_sessions_path, class:'form-group' do%>
 <%= text_field_tag :email, nil, class:'form-control', placeholder:'Email Address', :required => true %>
 <br>

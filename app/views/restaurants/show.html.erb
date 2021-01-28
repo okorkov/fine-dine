@@ -1,6 +1,6 @@
 <div class="card-group">
   <div class="card">
-    <h5 class="card-title display-3"><%=@restaurant.name%></h5>
+    <h5 class="card-title display-3"><%=@restaurant.name.capitalize%></h5>
     <img class="card-img-top" src="<%=@restaurant.picture%>" alt="Card image cap">
     <div class="card-body">
       <p class="card-text">Phone Number: <%=@restaurant.phone_formatter(@restaurant.phone_number)%></p>
@@ -13,7 +13,7 @@
   <div class="card text-center" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title">Make a Reservation</h5>
-      <p class="card-text"><%=@restaurant.name%> has this slots available</p>
+      <p class="card-text"><%=@restaurant.name.capitalize%> has this slots available</p>
       <a href="#" class="btn btn-primary">17:00</a>
     </div>
   </div>
