@@ -12,9 +12,22 @@
   </div>
   <div class="card text-center" style="width: 18rem;">
     <div class="card-body">
-      <h5 class="card-title">Make a Reservation</h5>
-      <p class="card-text"><%=@restaurant.name.capitalize%> has this slots available</p>
-      <a href="#" class="btn btn-primary">17:00</a>
+      <div class="card">
+  <div class="row">
+  <%@restaurant.slots.sort_by{|s| s.date.to_datetime}.each do |slot|%>
+    <div class="col-md-2">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><%=slot.time%></h5>
+          <p class="card-text"><%=slot.date.to_datetime.strftime('%b %e %a')%></p>
+          <p class="card-text"><%=slot.party_size%> people</p>
+          <%=link_to 'Book', edit_restaurant_slot_path(current_restaurant, slot), class:"btn btn-primary btn-sm"%>
+        </div>
+      </div>
+    </div>
+  <%end%>
+  </div>
+</div>
     </div>
   </div>
 </div>
