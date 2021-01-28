@@ -14,7 +14,11 @@ class SlotsController < ApplicationController
   end
 
   def create
-    slot = Slot.create(slot_params)
+    counter = 1
+    while counter < params[:how_many].to_i
+      slot = Slot.create(slot_params)
+      counter += 1
+    end
     redirect_to restaurant_slots_path(current_restaurant)
   end
 
