@@ -1,6 +1,7 @@
 <div class="navbar navbar-expand-lg navbar-light bg-light ">
   <div class="container-fluid">
     <a class=" text-dark w-75 p-4 display-3 nav-link" href="/"><strong>FINE DINE</strong></a>
+    <p class="w-100 p-1 text-grey">(restaurateur edition)<p>
   </div>
 </div>
 
@@ -16,7 +17,9 @@
         <%end%>
       <%end%>
       <a class="nav-item nav-link" href="#">Search</a>
-     
+      <%=form_tag "/restaurant_sessions/#{session[:restaurant_id]}", method:'delete', class:"nav-item nav-link" do%>
+      <%=submit_tag 'Log Out', class:"btn btn-danger btn-sm"%>
+      <%end%>
     </div>
    
   </div>

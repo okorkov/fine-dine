@@ -3,7 +3,6 @@ class RestaurantSessionsController < ApplicationController
   layout 'welcome'
 
   def new
-
   end
 
   def create
@@ -23,9 +22,8 @@ class RestaurantSessionsController < ApplicationController
   end
 
   def destroy
-    raise params.inspect
     session[:restaurant_id] = nil
-    session[:guest_id] = nil
+    redirect_to root_path
   end
 
 end
