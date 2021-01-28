@@ -1,8 +1,7 @@
 class RestaurantsController < ApplicationController
 
   before_action :require_login
-  skip_before_action :require_login, only: [:show]
-
+  skip_before_action :require_login, only: [:new]
  
 
   layout 'restaurant'
@@ -38,7 +37,7 @@ class RestaurantsController < ApplicationController
   private
 
   def require_login
-    return head(:forbidden) unless session.include? :restaurant_id
+    render 'access_denied', :layout => false unless session.include? :restaurant_id
   end
 
   def restaurant_params
