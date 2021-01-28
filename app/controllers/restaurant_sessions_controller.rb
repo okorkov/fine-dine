@@ -3,6 +3,7 @@ class RestaurantSessionsController < ApplicationController
   layout 'welcome'
 
   def new
+    redirect_to restaurants_path if logged_in?
   end
 
   def create
