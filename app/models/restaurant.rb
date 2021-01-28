@@ -1,5 +1,5 @@
 class Restaurant < ApplicationRecord
-  has_many :slots
+  has_many :slots, dependent: :destroy
   belongs_to :city
   has_many :reservations
   has_many :users, through: :reservations
@@ -17,7 +17,7 @@ class Restaurant < ApplicationRecord
     if attributes[:id] != ''
       self.city = City.where(id: attributes[:id]).first
     else
-      self.city = City.find_or_create_by(name: attributes[:name.split(' ').join('-')])
+      self.city = City.find_or_create_by(name: attributes[:name].split(' ').join('-'))
     end
   end
 

@@ -3,3 +3,9 @@
     <div class="display-4 text-center ">Edit Business Information</div><br>
 
     <%= render 'new-edit-form' %>
+
+<div class="text-center">
+  <%=form_tag "/restaurants/#{current_restaurant.id}", method:"delete" do %>
+  <%=submit_tag "Remove Restaurant From Our Planform", class:"btn btn-danger btn-lg"%>
+  <%end%>
+</div>

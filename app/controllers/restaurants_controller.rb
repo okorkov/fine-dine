@@ -1,7 +1,7 @@
 class RestaurantsController < ApplicationController
 
   before_action :require_login
-  skip_before_action :require_login, only: [:new]
+  skip_before_action :require_login, only: [:new, :create]
  
 
   layout 'restaurant'
@@ -46,7 +46,11 @@ class RestaurantsController < ApplicationController
     end
   end
 
-  
+  def destroy
+    Restaurant.find(current_restaurant.id).destroy
+    session[:restaurant_id] = nil
+    redirect_to root_path
+  end
 
 
   private
