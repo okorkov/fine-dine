@@ -7,9 +7,8 @@ Rails.application.routes.draw do
   resources :slots, only: [:create]
   resources :restaurants, only: [:index, :new, :show, :destroy, :edit, :update, :create] do
     resources :slots, only: [:new, :edit, :create, :update, :destroy, :index, :show] do
-      resources :reservations, only: [:new, :create]
     end
-    
+    resources :reservations, only: [:new, :create, :show, :destroy]
   end
   
   

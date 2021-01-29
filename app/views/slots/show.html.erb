@@ -7,7 +7,7 @@
           <h5 class="card-title"><%=@slot.time%></h5>
           <p class="card-text"><%=@slot.date.to_datetime.strftime('%b %e %a')%></p>
           <p class="card-text"><%=@slot.party_size%> people</p>
-          <%= link_to "Make Reservation", new_restaurant_slot_reservation_path(@restaurant, @slot), class:"btn btn-success bt-lg"%>
+          <%= link_to "Make Reservation", nil, class:"btn btn-success bt-lg"%>
     </div>
   </div>
 </div>
