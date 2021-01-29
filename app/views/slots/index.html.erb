@@ -10,7 +10,11 @@
           <h5 class="card-title"><%=slot.time%></h5>
           <p class="card-text"><%=slot.date.to_datetime.strftime('%b %e %a')%></p>
           <p class="card-text"><%=slot.party_size%> people</p>
-          <%=link_to 'Edit', edit_restaurant_slot_path(current_restaurant, slot), class:"btn btn-primary btn-sm"%>
+          <%if slot.booked?%>
+            <button type="button" class="btn btn-warning btn-sm" disabled>booked</button>
+          <%else%>
+            <%=link_to 'Edit', edit_restaurant_slot_path(current_restaurant, slot), class:"btn btn-primary btn-sm"%>
+          <%end%>
           <%=form_tag "/restaurants/#{current_restaurant.id}/slots/#{slot.id}", method:"delete" do %>
           <%=submit_tag "delete", class:"btn btn-danger btn-sm"%>
           <%end%>
