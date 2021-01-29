@@ -11,6 +11,7 @@ class ReservationsController < ApplicationController
   def create
     reservation = Reservation.create(reservation_params)
     reservation.slot.booked = true
+    reservation.slot.save
     restaurant = Restaurant.find(params[:restaurant_id])
     redirect_to restaurant_reservation_path(restaurant, reservation)
   end

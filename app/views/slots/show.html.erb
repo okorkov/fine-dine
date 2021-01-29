@@ -11,9 +11,12 @@
           <%=f.hidden_field :restaurant_id, value: @restaurant.id %>
           <%=f.hidden_field :guest_id, value: session[:guest_id] %>
           <%=f.hidden_field :slot_id, value: @slot.id %>
-          <%=f.submit "Make Reservation", class:'btn btn-success'%>
+            <%if @slot.booked%>
+               <p>Slot Already Booked</p>
+            <%else%>
+              <%=f.submit "Make Reservation", class:'btn btn-success'%>
+            <%end%>
           <%end%>
     </div>
   </div>
 </div>
-

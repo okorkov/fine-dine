@@ -22,7 +22,11 @@
           <p class="card-text"><%=slot.date.to_datetime.strftime('%b %e %a')%></p>
           <p class="card-text"><%=slot.party_size%> people</p>
           <%if session[:guest_id] != nil%>
-          <%=link_to 'Book', restaurant_slot_path(@restaurant, slot), class:"btn btn-primary btn-sm" %>
+            <%if slot.booked%>
+              <button type="button" class="btn btn-secondary btn-sm" disabled>N/A</button>
+            <%else%>
+              <%=link_to 'Book', restaurant_slot_path(@restaurant, slot), class:"btn btn-primary btn-sm" %>
+            <%end%>
           <%end%>
         </div>
       </div>
