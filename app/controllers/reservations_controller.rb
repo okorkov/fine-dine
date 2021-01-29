@@ -5,7 +5,9 @@ class ReservationsController < ApplicationController
   before_action :require_login
 
   def index
-
+    if current_restaurant
+      render :restaurant_index
+    end
   end
 
   def new

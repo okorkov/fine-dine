@@ -10,7 +10,7 @@
     <div class="navbar-nav">
       <a class="nav-item nav-link active" href="/restaurants">All Restaurants</a>
       <%=link_to "My Restaurant", restaurant_path(current_restaurant), class:"nav-item nav-link"%>
-      <a class="nav-item nav-link" href="#">My Reservations</a>
+      <%=link_to "My Reservations", restaurant_reservations_path(current_restaurant), class:"nav-item nav-link"%>
       <%=link_to "My Slots", restaurant_slots_path(current_restaurant), class:"nav-item nav-link"%>
       <%=link_to "Edit Information", edit_restaurant_path(current_restaurant),class:"nav-item nav-link" %>
       <a class="nav-item nav-link" href="#">Search Restaurant</a>
