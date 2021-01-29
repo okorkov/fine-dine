@@ -8,7 +8,9 @@
           <p class="card-text"><%=@slot.date.to_datetime.strftime('%b %e %a')%></p>
           <p class="card-text"><%=@slot.party_size%> people</p>
           <%=form_for [@restaurant, @reservation], class:'form-group' do |f|%>
-
+          <%=f.hidden_field :restaurant_id, value: @restaurant.id %>
+          <%=f.hidden_field :guest_id, value: session[:guest_id] %>
+          <%=f.hidden_field :slot_id, value: @slot.id %>
           <%=f.submit "Make Reservation", class:'btn btn-success'%>
           <%end%>
     </div>

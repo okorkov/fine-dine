@@ -3,6 +3,6 @@ class Reservation < ApplicationRecord
   belongs_to :guest
   belongs_to :slot
 
-  validates :guest_id, :date, :restaurant_id, presence: true
+  validates :guest_id, :restaurant_id, presence: true
 
 end

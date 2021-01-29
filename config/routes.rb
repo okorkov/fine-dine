@@ -5,10 +5,11 @@ Rails.application.routes.draw do
   resources :guests, only: [:new, :show, :destroy, :edit, :update, :create] do 
     resources :reservations, only: [:index, :destroy]
   end
+  resources :slots, only: [:create] 
   resources :restaurant_sessions, only: [:new, :create, :destroy]
   resources :restaurants, only: [:index, :new, :show, :destroy, :edit, :update, :create] do
     resources :reservations, only: [:show, :index, :create, :destroy]
-    resources :slots, only: [:new, :edit, :create, :update, :destroy, :index, :show] do
+    resources :slots, only: [:new, :edit, :update, :destroy, :index, :show] do
     end
   end
 
