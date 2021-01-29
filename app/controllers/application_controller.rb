@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-  helper_method :current_restaurant, :logged_in?, :phone_formatter
+  helper_method :current_restaurant, :logged_in?, :phone_formatter, :current_guest, :restaurant_logged_in?
 
   def current_restaurant
     Restaurant.find_by(id: session[:restaurant_id])

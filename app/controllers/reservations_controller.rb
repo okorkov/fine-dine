@@ -4,6 +4,10 @@ class ReservationsController < ApplicationController
 
   before_action :require_login
 
+  def index
+    
+  end
+
   def new
     @reservation = Reservation.new
   end
@@ -21,7 +25,11 @@ class ReservationsController < ApplicationController
   end
 
   def destroy
-    raise params.inspect
+    res = Reservation.find(params[:id])
+    res.slot.booked = false
+    res.slot.save
+    res.destroy
+    redirect_to restaurants_path
   end
 
   private

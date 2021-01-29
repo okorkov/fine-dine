@@ -9,7 +9,11 @@
      <p class="card-text">For <%=@reservation.slot.party_size%> People</p>
      <p><%=@reservation.restaurant.address%>, <%=@reservation.restaurant.city.name%></p>
      <p>Phone Number <%=@reservation.restaurant.phone_number%></p>
-    <a href="#" class="btn btn-danger">Cancel</a>
+    <%=form_tag guest_reservation_path(@reservation.guest), method:"delete" do %>
+      <%=submit_tag "Cancel", class:"btn btn-danger"%>
+    <%end%>
   </div>
 </div>
 </div>
+
+

@@ -6,9 +6,9 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-success">
     <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="/restaurants">Restaurants</a>
+      <%=link_to "Restaurants",restaurants_path, class:"nav-item nav-link active"%>
       <a class="nav-item nav-link" href="#">Cities</a>
-      <a class="nav-item nav-link" href="#">My Reservations</a>
+      <%=link_to "My Reservations",guest_reservations_path(current_guest), class:"nav-item nav-link"%>
       <a class="nav-item nav-link" href="#">My Profile</a>
       <a class="nav-item nav-link" href="#">Search Restaurant</a>
       <%=form_tag "/sessions/#{session[:guest_id]}", method:'delete', class:"nav-item nav-link" do%>
