@@ -7,7 +7,7 @@ class RestaurantsController < ApplicationController
   layout 'restaurant'
 
   def index
-   @restaurants = Restaurant.order(Arel.sql('RANDOM()')).first(10)
+    @restaurants = Restaurant.order(Arel.sql('RANDOM()')).first(10)
   end
 
   def new
