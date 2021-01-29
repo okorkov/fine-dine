@@ -14,7 +14,11 @@
   </head>
    <body style="margin-bottom: 150px">
 
-     <%=render 'layouts/guest_navbar'%>
+    <%if session[:guest_id]%>
+      <%=render 'layouts/guest_navbar'%>
+    <%elsif session[:restaurant_id]%>
+      <%=render 'layouts/restaurant_navbar'%>
+    <%end%>
 
     <%= yield %>
   

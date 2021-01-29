@@ -8,7 +8,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="/restaurants">All Restaurants</a>
+      <%=link_to "All Restaurants",restaurants_path, class:"nav-item nav-link active"%>
       <%=link_to "My Restaurant", restaurant_path(current_restaurant), class:"nav-item nav-link"%>
       <%=link_to "My Reservations", restaurant_reservations_path(current_restaurant), class:"nav-item nav-link"%>
       <%=link_to "My Slots", restaurant_slots_path(current_restaurant), class:"nav-item nav-link"%>
