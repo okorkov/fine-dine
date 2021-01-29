@@ -28,10 +28,16 @@ class ReservationsController < ApplicationController
 
   def destroy
     res = Reservation.find(params[:id])
-    res.slot.booked = false
-    res.slot.save
-    res.destroy
-    redirect_to guest_reservations_path(current_guest)
+    if params[:completed]
+      res.slot.destroy
+      res.destroy
+      redirect_to restaurant_reservations_path(current_restaurant)
+    else
+      res.slot.booked = false
+      res.slot.save
+      res.destroy
+      redirect_to guest_reservations_path(current_guest)
+    end
   end
 
   private
