@@ -23,6 +23,6 @@ class ReservationsController < ApplicationController
   private
 
   def require_login
-    render 'access_denied', :layout => false unless session.include? :restaurant_id
+    render 'layouts/access_denied', :layout => false if session[:guest_id].nil? && session[:restaurant_id].nil? 
   end
 end
