@@ -6,10 +6,6 @@ class GuestsController < ApplicationController
 
   layout 'guest'
   
-  def show
-
-  end
-
   def new
     @guest = Guest.new
     render layout: 'welcome'
@@ -27,11 +23,16 @@ class GuestsController < ApplicationController
   end
 
   def edit
-
+    @guest = current_guest
   end
 
   def update
-
+    @guest = Guest.find(params[:id])
+    if @guest.update(guest_params)
+      redirect_to restaurants_path
+    else
+      render :edit
+    end
   end
 
   def destroy
