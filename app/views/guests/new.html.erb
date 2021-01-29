@@ -1,0 +1,24 @@
+<div class="card">
+  <div class="card-body">
+    <div class="display-4 text-center ">Register a New Account:</div><br>
+
+
+
+<%if @guest.errors.any?%>
+  <% @guest.errors.full_messages.each do |message|%>
+    <div class="alert alert-danger"><%= message %></div>
+  <%end%>
+<%end%>
+
+<%=form_for @guest, class:'form-group' do |f| %>
+<%=f.text_field :email, class:"form-control", placeholder:'Email', :required => true %>
+<%=f.password_field :password, class:"form-control", placeholder:'Password', :required => true %>
+<%=f.password_field :password_confirmation, class:"form-control", placeholder:'Confirm Password', :required => true %>
+<%=f.text_field :first_name, class:"form-control", placeholder:'First Name', :required => true %>
+<%=f.text_field :last_name, class:"form-control", placeholder:'Last Name', :required => true %>
+<%=f.text_field :phone_number, class:"form-control", placeholder:'Phone Number', :required => true %>
+<div class="text-center"><br><%=f.submit  class: "btn btn-primary "%></div>
+<%end%>
+
+</div>
+</div>
