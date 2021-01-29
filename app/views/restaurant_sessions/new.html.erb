@@ -1,7 +1,7 @@
 
-<div class="display-4 text-center">Welcome Restaurateur!</div>
+<div class="display-5 text-center">Welcome Restaurateur!</div>
 <br>
-<div class="display-5 text-center">Sign In</div>
+<div class="display-6 text-center">Sign In</div>
 <br>
 <%if @error%>
 <div class="alert alert-danger"><%=@error%></div>
@@ -15,8 +15,6 @@
 <%end%>
 
 
-
-<div class="text-center display-5">
-  <p>Don't Have an Account?</p>
-  <h3><%=link_to 'Sign Up', new_restaurant_path%></h3>
+<div class="text-center display-7">
+  <p>Don't Have an Account? <%=link_to 'Sign Up', new_restaurant_path%></p>
 </div>

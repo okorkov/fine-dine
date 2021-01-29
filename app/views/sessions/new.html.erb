@@ -1,0 +1,19 @@
+
+<div class="display-5 text-center">Welcome!</div>
+<br>
+<div class="display-6 text-center">Sign In</div>
+<br>
+<%if @error%>
+<div class="alert alert-danger"><%=@error%></div>
+<%end%>
+<%=form_tag sessions_path, class:'form-group' do%>
+<%= text_field_tag :email, nil, class:'form-control', placeholder:'Email Address', :required => true %>
+<br>
+<%= text_field_tag :password , nil, class:'form-control', placeholder:'Password', :required => true %>
+<br>
+<%=submit_tag 'Log In', class: "btn btn-primary"%>
+<%end%>
+
+<div class="text-center display-7">
+  <p>Don't Have an Account? <%=link_to 'Sign Up', new_guest_path%></p>
+</div>

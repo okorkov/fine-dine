@@ -57,7 +57,7 @@ class RestaurantsController < ApplicationController
   private
 
   def require_login
-    render 'access_denied', :layout => false unless session.include? :restaurant_id
+    render 'layouts/access_denied', :layout => false unless session.include? :restaurant_id
   end
 
   def restaurant_params
