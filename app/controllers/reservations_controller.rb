@@ -5,7 +5,7 @@ class ReservationsController < ApplicationController
   before_action :require_login
 
   def index
-    
+
   end
 
   def new
@@ -29,7 +29,7 @@ class ReservationsController < ApplicationController
     res.slot.booked = false
     res.slot.save
     res.destroy
-    redirect_to restaurants_path
+    redirect_to guest_reservations_path(current_guest)
   end
 
   private
