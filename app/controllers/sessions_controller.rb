@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   layout 'welcome'
 
   def new
-    #redirect if logged in
+    redirect_to guest_path(current_guest) if logged_in?
   end
 
   def create
