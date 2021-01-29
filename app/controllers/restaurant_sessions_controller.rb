@@ -14,6 +14,7 @@ class RestaurantSessionsController < ApplicationController
     else
       if @restaurant && @restaurant.authenticate(params[:password])
       session[:restaurant_id] = @restaurant.id
+      session[:guest_id] = nil
       redirect_to restaurant_path(@restaurant)
       else
         @error = "Invalid password"

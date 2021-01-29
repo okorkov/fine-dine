@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  
+
   layout 'welcome'
 
   def new
@@ -14,6 +14,7 @@ class SessionsController < ApplicationController
     else
       if @guest && @guest.authenticate(params[:password])
       session[:guest_id] = @guest.id
+      session[:restaurant_id] = nil
       redirect_to restaurants_path
       else
         @error = "Invalid password"
