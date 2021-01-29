@@ -9,28 +9,10 @@ class ReservationsController < ApplicationController
   end
 
   def create
-    raise params.inspect
     reservation = Reservation.create(reservation_params)
-    slot = Slot.find(params[:slot_id])
-    
-    # create_table "slots", force: :cascade do |t|
-    #   t.integer "party_size"
-    #   t.string "time"
-    #   t.boolean "booked", default: false
-    #   t.integer "reservation_id"
-    #   t.integer "restaurant_id"
-    #   t.datetime "created_at", precision: 6, null: false
-    #   t.datetime "updated_at", precision: 6, null: false
-    #   t.string "date"
- 
-    
-    # create_table "reservations", force: :cascade do |t|
-    #   t.integer "guest_id"
-    #   t.integer "restaurant_id"
-    #   t.datetime "date"
-    #   t.datetime "created_at", precision: 6, null: false
-    #   t.datetime "updated_at", precision: 6, null: false
-
+    reservation.slot.booked = true
+    restaurant = Restaurant.find(params[:restaurant_id])
+    redirect_to restaurant_reservation_path(restaurant, reservation)
   end
 
   def show
@@ -48,6 +30,6 @@ class ReservationsController < ApplicationController
   end
 
   def reservation_params
-    params.require(:reservation).permit(:guest_id, :restaurant_id)
+    params.require(:reservation).permit(:guest_id, :restaurant_id, :slot_id)
   end
 end
