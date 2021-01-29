@@ -47,7 +47,7 @@ class RestaurantsController < ApplicationController
   end
 
   def destroy
-    Restaurant.find(current_restaurant.id).destroy
+    current_restaurant.destroy
     session[:restaurant_id] = nil
     redirect_to root_path
   end

@@ -36,7 +36,9 @@ class GuestsController < ApplicationController
   end
 
   def destroy
-
+    current_guest.destroy
+    session[:guest_id] = nil
+    redirect_to root_path
   end
 
   private

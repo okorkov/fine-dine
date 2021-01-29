@@ -2,6 +2,12 @@
   <div class="card-body">
     <div class="display-4 text-center ">Your Profile:</div><br>
 
+    <%= render 'new-edit-form' %>
 
-
- <%= render 'new-edit-form' %>
+    <div class="text-center">
+      <%=form_tag "/guests/#{current_guest.id}", method:"delete" do %>
+      <%=submit_tag "Delete Your Account", class:"btn btn-danger btn-lg"%>
+      <%end%>
+    </div>
+  </div>
+</div>
