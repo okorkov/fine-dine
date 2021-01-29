@@ -1,0 +1,18 @@
+<div class="row">
+  <%current_restaurant.reservations.each do |res|%>
+  <div class="col-md-3">
+    <div class="card text-center" style="width: 20rem;">
+      <div class="card-body">
+        <h5 class="card-title">Name: <%="#{res.guest.first_name} #{res.guest.last_name}"%></h5>
+        <p class="card-text">On <%=res.slot.date.to_datetime.strftime('%b %e %a')%> at <%=res.slot.time%></p>
+        <p class="card-text">For <%=res.slot.party_size%> People</p>
+        <p>Phone Number <%=res.guest.phone_number%></p>
+        <p>Email: <%=res.guest.email%></p>
+        <%=form_tag guest_reservation_path(res.guest, res), method:"delete" do %>
+        <%=submit_tag "Mark as Complete", class:"btn btn-success"%>
+        <%end%>
+      </div>
+    </div>
+  </div>
+  <%end%>
+</div>
