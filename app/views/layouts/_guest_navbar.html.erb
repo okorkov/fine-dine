@@ -10,7 +10,7 @@
       <%=link_to "Cities", cities_path, class:"nav-item nav-link"%>
       <%=link_to "My Reservations",guest_reservations_path(current_guest), class:"nav-item nav-link"%>
       <%=link_to "My Profile",edit_guest_path(current_guest), class:"nav-item nav-link"%>
-      <a class="nav-item nav-link" href="#">Search Restaurant</a>
+      <%=link_to "Search Restaurants", search_page_path , class:"nav-item nav-link"%>
       <%=form_tag "/sessions/#{session[:guest_id]}", method:'delete', class:"nav-item nav-link" do%>
       <%=submit_tag 'Log Out', class:"btn btn-danger btn-sm"%>
       <%end%>

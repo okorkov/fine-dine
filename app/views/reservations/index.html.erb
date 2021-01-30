@@ -1,8 +1,8 @@
 <div class="row">
   <%current_guest.reservations.each do |res|%>
   <div class="col-md-3">
-    <div class="card" style="width: 20rem;">
-      <img class="card-img-top" src="<%=res.restaurant.picture%>" alt="restaurant image" style="height: 16rem;">
+    <div class="card" style="width: 22rem;">
+      <img class="card-img-top" src="<%=res.restaurant.picture%>" alt="restaurant image" style="height: 18rem;">
       <div class="card-body">
         <h5 class="card-title">Your Reservation at <%=link_to res.restaurant.name, restaurant_path(res.restaurant)%></h5>
         <p class="card-text">On <%=res.slot.date.to_datetime.strftime('%b %e %a')%> at <%=res.slot.time%></p>

@@ -13,7 +13,7 @@
       <%=link_to "My Reservations", restaurant_reservations_path(current_restaurant), class:"nav-item nav-link"%>
       <%=link_to "My Slots", restaurant_slots_path(current_restaurant), class:"nav-item nav-link"%>
       <%=link_to "Edit Information", edit_restaurant_path(current_restaurant),class:"nav-item nav-link" %>
-      <a class="nav-item nav-link" href="#">Search Restaurant</a>
+      <%=link_to "Search Restaurants", search_page_path , class:"nav-item nav-link"%>
       <%=form_tag "/restaurant_sessions/#{session[:restaurant_id]}", method:'delete', class:"nav-item nav-link" do%>
       <%=submit_tag 'Log Out', class:"btn btn-danger btn-sm"%>
       <%end%>

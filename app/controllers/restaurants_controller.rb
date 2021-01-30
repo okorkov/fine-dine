@@ -9,7 +9,7 @@ class RestaurantsController < ApplicationController
     if params[:city_id]
       @restaurants = City.find(params[:city_id]).restaurants
     else
-      @restaurants = Restaurant.order(Arel.sql('RANDOM()')).first(10)
+      @restaurants = Restaurant.order(Arel.sql('RANDOM()')).first(20)
     end
     
   end
@@ -55,6 +55,10 @@ class RestaurantsController < ApplicationController
     current_restaurant.destroy
     session[:restaurant_id] = nil
     redirect_to root_path
+  end
+
+  def search  
+    
   end
 
 

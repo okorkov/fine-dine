@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
   root  'welcome#welcome'
+  get '/search' => 'restaurants#search', :as => 'search_page'
+
   resources :sessions, only: [:new, :create, :destroy]
   resources :guests, only: [:new, :destroy, :edit, :update, :create] do 
     resources :reservations, only: [:index, :destroy]

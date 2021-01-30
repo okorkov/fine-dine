@@ -8,7 +8,7 @@
     <%=link_to(image_tag(rest.picture, size: "340x270"), restaurant_path(rest) ,:class=>"card-img-top") %>
     <div class="card-body">
       <h5 class="card-title"><%=rest.name.capitalize%></h5>
-      <p class="card-text"><%=link_to "#{City.find(rest.city_id).name}"%></p>
+      <p class="card-text"><%=link_to rest.city.name.capitalize, city_restaurants_path(rest.city)%></p>
     </div>
   </div>
     </div>
