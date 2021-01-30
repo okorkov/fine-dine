@@ -5,7 +5,7 @@
     <div class="card-body">
       <p class="card-text">Phone Number: <%=@restaurant.phone_formatter(@restaurant.phone_number)%></p>
       <p class="card-text">Email: <%=@restaurant.email%></p>
-      <p class="card-text">City: <%=link_to "#{City.find(@restaurant.city_id).name}"%></p>
+      <p class="card-text">City: <%=link_to @restaurant.city.name.capitalize, city_restaurants_path(@restaurant.city) %></p>
       <p class="card-text">Address: <%=@restaurant.address%></p>
       <p class="card-text">Hours of Operation: from <%=@restaurant.opening_time%> to <%=@restaurant.closing_time%></p>
     </div>

@@ -6,7 +6,12 @@ class RestaurantsController < ApplicationController
   layout 'restaurant'
 
   def index
-    @restaurants = Restaurant.order(Arel.sql('RANDOM()')).first(10)
+    if params[:city_id]
+      @restaurants = City.find(params[:city_id]).restaurants
+    else
+      @restaurants = Restaurant.order(Arel.sql('RANDOM()')).first(10)
+    end
+    
   end
 
   def new
