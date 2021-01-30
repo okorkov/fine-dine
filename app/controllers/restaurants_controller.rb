@@ -58,7 +58,10 @@ class RestaurantsController < ApplicationController
   end
 
   def search  
-    
+    if !params[:search].blank?  
+      @parameter = params[:search].downcase  
+      @results = Restaurant.all.where("lower(name) LIKE :search", search: "%#{@parameter}%")
+    end  
   end
 
 
