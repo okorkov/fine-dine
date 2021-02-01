@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     resources :reservations, only: [:show, :index, :create]
     resources :slots, only: [:new, :edit, :update, :destroy, :index, :show]
   end
+  resources :reviews, only: [:create]
 
   match '/auth/:google_oauth2/callback' => 'sessions#google', via: [:get, :post]
 

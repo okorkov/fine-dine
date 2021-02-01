@@ -33,6 +33,7 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find_by(id: params[:id])
+    @review = Review.new
     if @restaurant.nil?
       redirect_to restaurants_path
     end

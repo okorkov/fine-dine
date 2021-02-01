@@ -34,6 +34,20 @@
           <%end%>
         </div>
       </div>
+      <h3 class="text-center"><%="#{@restaurant.name.capitalize}'s reviews:"%></h3>
+      <%@restaurant.reviews.each do |review|%>
+        <hr>
+        <h4><%="'#{review.content.capitalize}'"%></h4>
+        <p><%="posted on #{review.created_at.to_datetime.strftime('%b %e')} by #{review.guest.first_name}"%></p>
+      <%end%>
+      <%if session[:guest_id]%>
+        <%=form_for @review do |f|%>
+          <%=f.text_field :content, required: true %>
+          <%=f.hidden_field :restaurant_id, value: params[:id] %>
+          <%=f.hidden_field :guest_id, value: current_guest.id %>
+          <%=f.submit "Post Review", class:"btn btn-success btn-sm"%>
+        <%end%>
+      <%end%>
     </div>
   </div>
 </div>
