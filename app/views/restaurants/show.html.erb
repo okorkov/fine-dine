@@ -13,27 +13,27 @@
   <div class="card text-center" style="width: 18rem;">
     <div class="card-body">
       <div class="card">
-  <div class="row">
-  <%@restaurant.slots.sort_by{|s| s.date.to_datetime}.each do |slot|%>
-    <div class="col-md-2">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title"><%=slot.time%></h5>
-          <p class="card-text"><%=slot.date.to_datetime.strftime('%b %e %a')%></p>
-          <p class="card-text"><%=slot.party_size%> people</p>
-          <%if session[:guest_id] != nil%>
-            <%if slot.booked%>
-              <button type="button" class="btn btn-secondary btn-sm" disabled>N/A</button>
-            <%else%>
-              <%=link_to 'Book', restaurant_slot_path(@restaurant, slot), class:"btn btn-primary btn-sm" %>
-            <%end%>
+        <div class="row">
+          <%@restaurant.slots.sort_by{|s| s.date.to_datetime}.each do |slot|%>
+          <div class="col-md-2">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title"><%=slot.time%></h5>
+                <p class="card-text"><%=slot.date.to_datetime.strftime('%b %e %a')%></p>
+                <p class="card-text"><%=slot.party_size%> people</p>
+                <%if session[:guest_id] != nil%>
+                  <%if slot.booked%>
+                    <button type="button" class="btn btn-secondary btn-sm" disabled>N/A</button>
+                  <%else%>
+                    <%=link_to 'Book', restaurant_slot_path(@restaurant, slot), class:"btn btn-primary btn-sm" %>
+                  <%end%>
+                <%end%>
+              </div>
+            </div>
+          </div>
           <%end%>
         </div>
       </div>
-    </div>
-  <%end%>
-  </div>
-</div>
     </div>
   </div>
 </div>

@@ -1,15 +1,15 @@
 <br>
 <div class="col d-flex justify-content-center text-center">
-  <%= form_tag search_page_path, method:'get' do %>  
+  <%= form_tag search_page_path, method:'get' do %>
     <div class="input-group " style="width: 600px;">
-    <%= search_field_tag :search, params[:search], placeholder: "Find a Restaurant", class: "form-control rounded" %> 
-    <%= submit_tag "Search", class:"btn btn-outline-success"%>  
+    <%= search_field_tag :search, params[:search], placeholder: "Find a Restaurant", class: "form-control rounded" %>
+    <%= submit_tag "Search", class:"btn btn-outline-success"%>
   <% end %>
   </div>
 </div>
 <br>
 <div class="card-deck">
   <div class="row">
-    <%= render :partial => "restaurant", :collection => @results %> 
- </div>
+    <%= render :partial => "restaurant", :collection => @results %>
+  </div>
 </div>

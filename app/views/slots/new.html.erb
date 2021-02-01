@@ -1,13 +1,13 @@
 <div class="display-4 text-center">Create a new Slot</div>
 <br>
 <%=form_for @slot, class:'form-group' do |f|%>
-<%=f.hidden_field :restaurant_id, value: current_restaurant.id %>
-<%=f.text_field :time, class:"form-control", placeholder:'Time: Example 16:00', :required => true %>
-<%=f.text_field :party_size, class:"form-control", placeholder:'Party Size', :required => true %>
-<%=f.date_field :date, class:"form-control", placeholder:'Date', :required => true %>
-<%=number_field_tag :how_many, nil, class:"form-control", placeholder:'How Many of Those Slots You Would Like to Create', :required => true%>
-<br>
-<%=f.submit 'Create New Slot', class: "btn btn-primary "%>
+  <%=f.hidden_field :restaurant_id, value: current_restaurant.id %>
+  <%=f.text_field :time, class:"form-control", placeholder:'Time: Example 16:00', :required => true %>
+  <%=f.text_field :party_size, class:"form-control", placeholder:'Party Size', :required => true %>
+  <%=f.date_field :date, class:"form-control", placeholder:'Date', :required => true %>
+  <%=number_field_tag :how_many, nil, class:"form-control", placeholder:'How Many of Those Slots You Would Like to Create', :required => true%>
+  <br>
+  <%=f.submit 'Create New Slot', class: "btn btn-primary "%>
 <%end%>
 
 <div class="text-center display-5">

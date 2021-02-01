@@ -9,8 +9,8 @@
         <p>Phone Number: <%=res.guest.phone_number%></p>
         <p>Email: <%=res.guest.email%></p>
         <%=form_tag guest_reservation_path(res.guest, res), method:"delete" do %>
-        <%=hidden_field_tag :completed, value: true %>
-        <%=submit_tag "Mark as Complete", class:"btn btn-success"%>
+          <%=hidden_field_tag :completed, value: true %>
+          <%=submit_tag "Mark as Complete", class:"btn btn-success"%>
         <%end%>
       </div>
     </div>

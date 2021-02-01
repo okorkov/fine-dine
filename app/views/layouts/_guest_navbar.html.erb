@@ -5,16 +5,16 @@
 </div>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-success">
-    <div class="navbar-nav">
-      <%=link_to "Restaurants",restaurants_path, class:"nav-item nav-link active"%>
-      <%=link_to "Cities", cities_path, class:"nav-item nav-link"%>
-      <%=link_to "My Reservations",guest_reservations_path(current_guest), class:"nav-item nav-link"%>
-      <%=link_to "My Profile",edit_guest_path(current_guest), class:"nav-item nav-link"%>
-      <%=link_to "Search Restaurants", search_page_path , class:"nav-item nav-link"%>
-      <%=form_tag "/sessions/#{session[:guest_id]}", method:'delete', class:"nav-item nav-link" do%>
+  <div class="navbar-nav">
+    <%=link_to "Restaurants",restaurants_path, class:"nav-item nav-link active"%>
+    <%=link_to "Cities", cities_path, class:"nav-item nav-link"%>
+    <%=link_to "My Reservations",guest_reservations_path(current_guest), class:"nav-item nav-link"%>
+    <%=link_to "My Profile",edit_guest_path(current_guest), class:"nav-item nav-link"%>
+    <%=link_to "Search Restaurants", search_page_path , class:"nav-item nav-link"%>
+    <%=form_tag "/sessions/#{session[:guest_id]}", method:'delete', class:"nav-item nav-link" do%>
       <%=submit_tag 'Log Out', class:"btn btn-danger btn-sm"%>
-      <%end%>
-    </div>
+    <%end%>
+  </div>
 </nav>
 
 

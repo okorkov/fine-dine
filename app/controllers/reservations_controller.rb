@@ -10,10 +10,6 @@ class ReservationsController < ApplicationController
     end
   end
 
-  def new
-    @reservation = Reservation.new
-  end
-
   def create
     reservation = Reservation.create(reservation_params)
     reservation.slot.booked = true

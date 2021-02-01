@@ -1,29 +1,27 @@
 <br>
-<div class="text-center"><%=link_to "Create New Slot", new_restaurant_slot_path , class:"btn btn-success btn-lg "%></div>
+<div class="text-center"><%=link_to "Create New Slot", new_restaurant_slot_path , class:"btn btn-success btn-lg "%>
+</div>
 <hr>
-
-  <div class="row">
+<div class="row">
   <%@slots.sort_by{|s| s.date.to_datetime}.each do |slot|%>
-    <div class="col-md-1">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title"><%=slot.time%></h5>
-          <p class="card-text"><%=slot.date.to_datetime.strftime('%b %e %a')%></p>
-          <p class="card-text"><%=slot.party_size%> people</p>
-          <%if slot.booked?%>
-            <button type="button" class="btn btn-warning btn-sm" disabled>booked</button>
-          <%else%>
-            <%=link_to 'Edit', edit_restaurant_slot_path(current_restaurant, slot), class:"btn btn-primary btn-sm"%>
-          <%end%>
-          <%=form_tag "/restaurants/#{current_restaurant.id}/slots/#{slot.id}", method:"delete" do %>
+  <div class="col-md-1">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><%=slot.time%></h5>
+        <p class="card-text"><%=slot.date.to_datetime.strftime('%b %e %a')%></p>
+        <p class="card-text"><%=slot.party_size%> people</p>
+        <%if slot.booked?%>
+          <button type="button" class="btn btn-warning btn-sm" disabled>booked</button>
+        <%else%>
+          <%=link_to 'Edit', edit_restaurant_slot_path(current_restaurant, slot), class:"btn btn-primary btn-sm"%>
+        <%end%>
+
+        <%=form_tag "/restaurants/#{current_restaurant.id}/slots/#{slot.id}", method:"delete" do %>
           <%=submit_tag "delete", class:"btn btn-danger btn-sm"%>
-          <%end%>
-        </div>
+        <%end%>
+        
       </div>
     </div>
-  <%end%>
   </div>
-
-
-
-
+  <%end%>
+</div>

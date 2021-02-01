@@ -19,4 +19,6 @@ Rails.application.routes.draw do
     end
   end
 
+  get "*any", via: :all, to: "errors#not_found", as: :not_found
+
 end

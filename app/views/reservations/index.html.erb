@@ -10,7 +10,7 @@
         <p><%=res.restaurant.address%>, <%=res.restaurant.city.name%></p>
         <p>Phone Number <%=res.restaurant.phone_number%></p>
         <%=form_tag guest_reservation_path(res.guest, res), method:"delete" do %>
-        <%=submit_tag "Cancel Reservation", class:"btn btn-danger"%>
+          <%=submit_tag "Cancel Reservation", class:"btn btn-danger"%>
         <%end%>
       </div>
     </div>
