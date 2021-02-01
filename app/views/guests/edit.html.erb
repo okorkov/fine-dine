@@ -4,6 +4,7 @@
 
     <%= render 'new-edit-form' %>
 
+    <br>
     <div class="text-center">
       <%=form_tag "/guests/#{current_guest.id}", method:"delete" do %>
         <%=submit_tag "Delete Your Account", class:"btn btn-danger btn-lg"%>
