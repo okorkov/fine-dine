@@ -9,6 +9,7 @@
         <%=f.hidden_field :restaurant_id, value: params[:restaurant_id] %>
         <%=f.hidden_field :guest_id, value: session[:guest_id] %>
         <%=f.hidden_field :slot_id, value: @slot.id %>
+        <%=f.hidden_field :booked, value: true %>
         <%if @slot.booked%>
           <p>Slot Already Booked</p>
         <%else%>

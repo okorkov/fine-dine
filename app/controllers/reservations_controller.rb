@@ -1,8 +1,8 @@
 class ReservationsController < ApplicationController
-  
-  layout 'restaurant'
 
   before_action :require_login
+  
+  layout 'restaurant'
 
   def index
     if current_restaurant
@@ -37,10 +37,6 @@ class ReservationsController < ApplicationController
   end
 
   private
-
-  def require_login
-    render 'layouts/access_denied', :layout => false if session[:guest_id].nil? && session[:restaurant_id].nil? 
-  end
 
   def reservation_params
     params.require(:reservation).permit(:guest_id, :restaurant_id, :slot_id)

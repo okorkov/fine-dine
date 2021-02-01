@@ -1,5 +1,7 @@
 class RestaurantSessionsController < ApplicationController
 
+  before_action :require_login
+
   layout 'welcome'
 
   def new

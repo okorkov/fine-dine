@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-  helper_method :current_restaurant, :logged_in?, :phone_formatter, :current_guest, :restaurant_logged_in?
+  helper_method :current_restaurant, :logged_in?, :current_guest, :restaurant_logged_in?, :require_login
 
   def current_restaurant
     Restaurant.find_by(id: session[:restaurant_id])
@@ -18,9 +18,8 @@ class ApplicationController < ActionController::Base
     session[:guest_id] != nil
   end
 
-  def phone_formatter
-    number = self
-    "(#{number[0..2]})#{number[3..5]}-#{number[6..10]}"
+  def require_login
+    render 'errors/not_logged_in', :layout => "welcome" if session[:guest_id].nil? && session[:restaurant_id].nil? 
   end
 
 end
