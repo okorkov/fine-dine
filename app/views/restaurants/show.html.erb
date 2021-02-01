@@ -3,7 +3,7 @@
     <h5 class="card-title display-3 text-center"><%=@restaurant.name.capitalize%></h5>
     <img class="card-img-top" src="<%=@restaurant.picture%>" alt="Card image cap">
     <div class="card-body">
-      <p class="card-text">Phone Number: <%=@restaurant.phone_formatter(@restaurant.phone_number)%></p>
+      <p class="card-text">Phone Number: <%=cell_format(@restaurant.phone_number)%></p>
       <p class="card-text">Email: <%=@restaurant.email%></p>
       <p class="card-text">City: <%=link_to @restaurant.city.name.capitalize, city_restaurants_path(@restaurant.city) %></p>
       <p class="card-text">Address: <%=@restaurant.address%></p>

@@ -35,4 +35,12 @@ module ApplicationHelper
     redirect_to restaurant_slots_path(current_restaurant)
   end
 
+  def date_format(date)
+    date.to_datetime.strftime('%b %e %a')
+  end
+
+  def cell_format(number)
+    "(#{number[0..2]})#{number[3..5]}-#{number[6..10]}"
+  end
+
 end

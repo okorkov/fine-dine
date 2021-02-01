@@ -6,7 +6,7 @@
         <h5 class="card-title">Name: <%="#{res.guest.first_name} #{res.guest.last_name}"%></h5>
         <p class="card-text">On <%=res.slot.date.to_datetime.strftime('%b %e %a')%> at <%=res.slot.time%></p>
         <p class="card-text">For <%=res.slot.party_size%> People</p>
-        <p>Phone Number: <%=res.guest.phone_number%></p>
+        <p>Phone Number: <%=cell_format(res.guest.phone_number) if !res.guest.phone_number.nil?%></p>
         <p>Email: <%=res.guest.email%></p>
         <%=form_tag guest_reservation_path(res.guest, res), method:"delete" do %>
           <%=hidden_field_tag :completed, value: true %>

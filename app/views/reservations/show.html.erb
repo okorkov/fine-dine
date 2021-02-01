@@ -7,7 +7,7 @@
       <p class="card-text">On <%=@reservation.slot.date.to_datetime.strftime('%b %e %a')%> at <%=@reservation.slot.time%></p>
       <p class="card-text">For <%=@reservation.slot.party_size%> People</p>
       <p><%=@reservation.restaurant.address%>, <%=@reservation.restaurant.city.name%></p>
-      <p>Phone Number <%=@reservation.restaurant.phone_number%></p>
+      <p>Phone Number <%=cell_format(@reservation.restaurant.phone_number)%></p>
       <%=form_tag guest_reservation_path(@reservation.guest), method:"delete" do %>
         <%=submit_tag "Cancel", class:"btn btn-danger"%>
       <%end%>
