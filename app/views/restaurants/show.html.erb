@@ -19,7 +19,7 @@
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title"><%=slot.time%></h5>
-                <p class="card-text"><%=slot.date.to_datetime.strftime('%b %e %a')%></p>
+                <p class="card-text"><%=date_format(slot.date) %></p>
                 <p class="card-text"><%=slot.party_size%> people</p>
                 <%if session[:guest_id] != nil%>
                   <%if slot.booked%>
