@@ -46,10 +46,6 @@ class SlotsController < ApplicationController
 
   private
 
-  def require_login
-    render 'layouts/access_denied', :layout => false if session[:guest_id].nil? && session[:restaurant_id].nil? 
-  end
-
   def slot_params
     params.require(:slot).permit(:restaurant_id, :time, :party_size, :date)
   end

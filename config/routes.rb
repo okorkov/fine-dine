@@ -15,8 +15,7 @@ Rails.application.routes.draw do
   resources :restaurant_sessions, only: [:new, :create, :destroy]
   resources :restaurants, only: [:index, :new, :show, :destroy, :edit, :update, :create] do
     resources :reservations, only: [:show, :index, :create]
-    resources :slots, only: [:new, :edit, :update, :destroy, :index, :show] do
-    end
+    resources :slots, only: [:new, :edit, :update, :destroy, :index, :show]
   end
 
   get "*any", via: :all, to: "errors#not_found", as: :not_found

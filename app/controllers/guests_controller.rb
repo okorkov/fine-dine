@@ -43,10 +43,6 @@ class GuestsController < ApplicationController
 
   private
 
-  def require_login
-    render 'layouts/access_denied', :layout => false unless session.include? :guest_id
-  end
-
   def guest_params
     params.require(:guest).permit(:email, :password, :password_confirmation, :phone_number, :first_name, :last_name)
   end
