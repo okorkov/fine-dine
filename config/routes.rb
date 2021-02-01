@@ -18,8 +18,8 @@ Rails.application.routes.draw do
     resources :slots, only: [:new, :edit, :update, :destroy, :index, :show]
   end
 
-  get "*any", via: :all, to: "errors#not_found", as: :not_found
-
   match '/auth/:google_oauth2/callback' => 'sessions#google', via: [:get, :post]
+
+  # get "*any", via: :all, to: "errors#not_found", as: :not_found
 
 end

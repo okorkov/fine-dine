@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
   before_action :require_login
-  skip_before_action :require_login, only: [:new, :create]
+  skip_before_action :require_login, only: [:new, :create, :google]
 
   layout 'welcome'
 
@@ -32,7 +32,23 @@ class SessionsController < ApplicationController
   end
 
   def google
-    
+    @guest = Guest.find_or_create_by(email: auth['info']['email']) do |guest|
+      guest.first_name = auth['info']['first_name']
+      guest.password = SecureRandom.hex(10)
+      guest.save
+    end
+    if @guest && @guest.id
+      session[:guest_id] = @guest.id
+      redirect_to restaurants_path
+    else
+      redirect_to new_session_path
+    end
+  end
+
+  private 
+
+  def auth
+    request.env['omniauth.auth']
   end
 
 end
