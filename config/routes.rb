@@ -20,4 +20,6 @@ Rails.application.routes.draw do
 
   get "*any", via: :all, to: "errors#not_found", as: :not_found
 
+  match '/auth/:google_oauth2/callback' => 'sessions#google', via: [:get, :post]
+
 end
