@@ -2,7 +2,7 @@ class ReservationsController < ApplicationController
 
   before_action :require_login
   
-  layout 'restaurant'
+  layout 'restaurant_guest'
 
   def index
     if current_restaurant

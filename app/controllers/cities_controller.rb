@@ -2,7 +2,7 @@ class CitiesController < ApplicationController
 
   before_action :require_login
 
-  layout 'guest'
+  layout 'restaurant_guest'
 
   def index
     @cities = City.all

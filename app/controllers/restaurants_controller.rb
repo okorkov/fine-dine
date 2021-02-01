@@ -3,7 +3,7 @@ class RestaurantsController < ApplicationController
   before_action :require_login
   skip_before_action :require_login, only: [:new, :create]
 
-  layout 'restaurant'
+  layout 'restaurant_guest'
 
   def index
     if params[:city_id]
@@ -54,8 +54,7 @@ class RestaurantsController < ApplicationController
 
   def destroy
     current_restaurant.destroy
-    session[:restaurant_id] = nil
-    redirect_to root_path
+    restaurant_session_reset
   end
 
   def search  

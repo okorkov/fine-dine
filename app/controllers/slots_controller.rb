@@ -1,6 +1,6 @@
 class SlotsController < ApplicationController
 
-  layout 'restaurant'
+  layout 'restaurant_guest'
 
   before_action :require_login
 
@@ -19,7 +19,7 @@ class SlotsController < ApplicationController
       slot = Slot.create(slot_params)
       counter += 1
     end
-    redirect_to restaurant_slots_path(current_restaurant)
+    redirect_rest_slot
   end
 
   def show
@@ -36,12 +36,12 @@ class SlotsController < ApplicationController
   def update
     slot = Slot.find(params[:id])
     slot.update(slot_params)
-    redirect_to restaurant_slots_path(current_restaurant)
+    redirect_rest_slot
   end
 
   def destroy
     Slot.find(params[:id]).destroy
-    redirect_to restaurant_slots_path(current_restaurant)
+    redirect_rest_slot
   end
 
   private

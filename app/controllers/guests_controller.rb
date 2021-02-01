@@ -4,7 +4,7 @@ class GuestsController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
  
 
-  layout 'guest'
+  layout 'restaurant_guest'
   
   def new
     @guest = Guest.new

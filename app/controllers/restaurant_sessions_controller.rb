@@ -27,8 +27,7 @@ class RestaurantSessionsController < ApplicationController
   end
 
   def destroy
-    session[:restaurant_id] = nil
-    redirect_to root_path
+    restaurant_session_reset
   end
 
 end

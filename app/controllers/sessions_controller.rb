@@ -16,9 +16,7 @@ class SessionsController < ApplicationController
       render :new
     else
       if @guest && @guest.authenticate(params[:password])
-      session[:guest_id] = @guest.id
-      session[:restaurant_id] = nil
-      redirect_to restaurants_path
+        guest_session
       else
         @error = "Invalid password"
         render :new
@@ -32,15 +30,12 @@ class SessionsController < ApplicationController
   end
 
   def google
-    @guest = Guest.find_or_create_by(email: auth['info']['email']) do |guest|
-      guest.first_name = auth['info']['first_name']
+    @guest = Guest.find_or_create_by(email: auth['email'], first_name: auth['first_name']) do |guest|
       guest.password = SecureRandom.hex(10)
       guest.save
     end
     if @guest && @guest.id
-      session[:guest_id] = @guest.id
-      session[:restaurant_id] = nil
-      redirect_to restaurants_path
+      guest_session
     else
       redirect_to new_session_path
     end
@@ -49,7 +44,7 @@ class SessionsController < ApplicationController
   private 
 
   def auth
-    request.env['omniauth.auth']
+    request.env['omniauth.auth']['info']
   end
 
 end
