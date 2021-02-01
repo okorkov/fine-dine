@@ -39,6 +39,7 @@ class SessionsController < ApplicationController
     end
     if @guest && @guest.id
       session[:guest_id] = @guest.id
+      session[:restaurant_id] = nil
       redirect_to restaurants_path
     else
       redirect_to new_session_path
