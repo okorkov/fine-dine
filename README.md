@@ -10,7 +10,7 @@ About This Project:
 Installation instructions:
   * Download:
     1) Code -> Clone this repo
-    2) $ git clone (cmd + V (Mac)/ control + V (Windows))
+    2) $ git clone (paste cloned address to the terminal)
   * Downloading dependencies:
     $ bundle install
   * Setting up local server:

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   root  'welcome#welcome'
   get '/search' => 'restaurants#search', :as => 'search_page'
+  get '/most-restaurants' => 'cities#most_restaurants'
 
   resources :sessions, only: [:new, :create, :destroy]
   resources :guests, only: [:new, :destroy, :edit, :update, :create] do 
@@ -21,6 +22,6 @@ Rails.application.routes.draw do
 
   match '/auth/:google_oauth2/callback' => 'sessions#google', via: [:get, :post]
 
-  # get "*any", via: :all, to: "errors#not_found", as: :not_found
+  get "*any", via: :all, to: "errors#not_found", as: :not_found
 
 end

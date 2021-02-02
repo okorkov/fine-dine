@@ -8,4 +8,10 @@ class CitiesController < ApplicationController
     @cities = City.all
   end
 
+  def most_restaurants
+    city = City.all.max_by {|city| city.restaurants.size}
+    @cities = [city]
+    render :index
+  end
+
 end
