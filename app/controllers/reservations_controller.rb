@@ -1,6 +1,7 @@
 class ReservationsController < ApplicationController
 
-  before_action :require_login
+  before_action :require_login, :find_reservation, only: [:show, :destroy]
+  
   
   layout 'restaurant_guest'
 
@@ -12,26 +13,22 @@ class ReservationsController < ApplicationController
 
   def create
     reservation = Reservation.create(reservation_params)
-    reservation.slot.booked = true
-    reservation.slot.save
+    book_slot(reservation, true)
     restaurant = Restaurant.find(params[:reservation][:restaurant_id])
     redirect_to restaurant_reservation_path(restaurant, reservation)
   end
 
   def show
-    @reservation = Reservation.find(params[:id])
   end
 
   def destroy
-    res = Reservation.find(params[:id])
     if params[:completed]
-      res.slot.destroy
-      res.destroy
+      @reservation.slot.destroy
+      @reservation.destroy
       redirect_to restaurant_reservations_path(current_restaurant)
     else
-      res.slot.booked = false
-      res.slot.save
-      res.destroy
+      book_slot(@reservation, false)
+      @reservation.destroy
       redirect_to guest_reservations_path(current_guest)
     end
   end

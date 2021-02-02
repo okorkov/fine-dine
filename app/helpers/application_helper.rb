@@ -43,4 +43,17 @@ module ApplicationHelper
     "(#{number[0..2]})#{number[3..5]}-#{number[6..10]}"
   end
 
+  def guest_declaration
+    @guest = current_guest
+  end
+
+  def book_slot(reservation, value)
+    reservation.slot.booked = value
+    reservation.slot.save
+  end
+
+  def find_reservation
+    @reservation = Reservation.find(params[:id])
+  end
+
 end

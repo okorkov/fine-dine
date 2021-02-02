@@ -1,8 +1,8 @@
 class GuestsController < ApplicationController
 
-  before_action :require_login
+  before_action :require_login, :guest_declaration
   skip_before_action :require_login, only: [:new, :create]
- 
+  skip_before_action :guest_declaration, only: [:new, :create, :destroy]
 
   layout 'restaurant_guest'
   
@@ -23,11 +23,9 @@ class GuestsController < ApplicationController
   end
 
   def edit
-    @guest = current_guest
   end
 
   def update
-    @guest = Guest.find(params[:id])
     if @guest.update(guest_params)
       redirect_to restaurants_path
     else
