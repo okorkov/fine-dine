@@ -8,6 +8,7 @@
         <p class="card-text">For <%=res.slot.party_size%> People</p>
         <p>Phone Number: <%=cell_format(res.guest.phone_number) if !res.guest.phone_number.nil?%></p>
         <p>Email: <%=res.guest.email%></p>
+        <p>Notes: <%=res.notes%></p>
         <%=form_tag guest_reservation_path(res.guest, res), method:"delete" do %>
           <%=hidden_field_tag :completed, value: true %>
           <%=submit_tag "Mark as Complete", class:"btn btn-success"%>

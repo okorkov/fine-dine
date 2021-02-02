@@ -10,6 +10,7 @@
         <%=f.hidden_field :guest_id, value: session[:guest_id] %>
         <%=f.hidden_field :slot_id, value: @slot.id %>
         <%=f.hidden_field :booked, value: true %>
+        <%=f.text_field :notes, placeholder:'notes'%><br><br>
         <%if @slot.booked%>
           <p>Slot Already Booked</p>
         <%else%>
