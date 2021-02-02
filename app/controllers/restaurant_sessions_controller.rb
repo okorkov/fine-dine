@@ -15,7 +15,7 @@ class RestaurantSessionsController < ApplicationController
       @error = "No restaurant with this email found"
       render :new
     else
-      if @restaurant && @restaurant.authenticate(params[:password])
+      if authenticate(@restaurant)
       session[:restaurant_id] = @restaurant.id
       session[:guest_id] = nil
       redirect_to restaurant_path(@restaurant)

@@ -2,10 +2,10 @@ class SlotsController < ApplicationController
 
   layout 'restaurant_guest'
 
-  before_action :require_login
+  before_action :require_login, :find_slot_and_restaurant
+  skip_before_action :find_slot_and_restaurant, only: [:new, :create]
 
   def index
-    @restaurant = Restaurant.find(params[:restaurant_id])
     @slots = @restaurant.slots
   end
 
@@ -23,24 +23,19 @@ class SlotsController < ApplicationController
   end
 
   def show
-    @slot = Slot.find(params[:id])
-    @restaurant = Restaurant.find_by(params[:restaurant_id])
     @reservation = Reservation.new
   end
 
   def edit
-    @restaurant = Restaurant.find(params[:restaurant_id])
-    @slot = Slot.find(params[:id])
   end
 
   def update
-    slot = Slot.find(params[:id])
     slot.update(slot_params)
     redirect_rest_slot
   end
 
   def destroy
-    Slot.find(params[:id]).destroy
+    @slot.destroy
     redirect_rest_slot
   end
 

@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
       @error = "No user with this email found"
       render :new
     else
-      if @guest && @guest.authenticate(params[:password])
+      if authenticate(@guest)
         guest_session
       else
         @error = "Invalid password"

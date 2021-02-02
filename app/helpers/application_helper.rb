@@ -56,4 +56,17 @@ module ApplicationHelper
     @reservation = Reservation.find(params[:id])
   end
 
+  def find_restaurant
+    @restaurant = Restaurant.find_by(id: params[:id])
+  end
+
+  def authenticate(user)
+    user && user.authenticate(params[:password])
+  end
+
+  def find_slot_and_restaurant
+    @restaurant = Restaurant.find_by(id: params[:restaurant_id])
+    @slot = Slot.find_by(id: params[:id])
+  end
+
 end
