@@ -1,0 +1,13 @@
+<br>
+<div class="col d-flex justify-content-center text-center">
+  <div class="card" style="width: 20rem;">
+    <img class="card-img-top" src="<%=@reservation.restaurant.picture%>" alt="restaurant image" style="height: 16rem;">
+    <div class="card-body">
+      <h5 class="card-title">Your Reservation at <%=@reservation.restaurant.name%></h5>
+      <p class="card-text">On <%=@reservation.slot.date.to_datetime.strftime('%b %e %a')%> at <%=@reservation.slot.time%></p>
+      <p class="card-text">For <%=@reservation.slot.party_size%> People</p>
+      <p><%=@reservation.restaurant.address%>, <%=@reservation.restaurant.city.name%></p>
+      <p>Phone Number <%=@reservation.restaurant.phone_number%></p>
+    </div>
+  </div>
+</div>
