@@ -1,10 +1,10 @@
 ________________________________________________________________________________________________________________________
 
 Overview:
-  Fine Dine is a restaurants reservation platform that allows guests to explore restaurants and make a reservations if restaurant have slots available. Restaurants also categorized by city so it's easy to browse through all of the restaurants in your city or just look them up by searching. The restaurants on the other hand may also register on the platform and manage slots available for bookings with specific date and time. 
+  Fine Dine is a restaurants reservation platform that allows guests to explore restaurants and make a reservations if restaurant have slots available. Restaurants also categorized by city so it's easy to browse through all of the restaurants in your city or just look them up by searching. The restaurants on the other hand may also register on the platform and manage slots available for bookings with specific date and time. Guest will receive the email confirmation with details after making reservation.
 
 About This Project:
-  This web app is build on Ruby on Rails framework. For the user authentication with google account was used omniauth gem with following dependencies (gem dotenv-rails - to to able to hide keys and secrets for for omniauth without exposing them on github, gem omniauth-google-oauth2 for google authentication and omniauth-rails_csrf_protection for fixing denied access making a call to google) 
+  This web app is build on Ruby on Rails framework. For the user authentication with google account was used omniauth gem with following dependencies (gem dotenv-rails - to to able to hide keys and secrets for for omniauth without exposing them on github, gem omniauth-google-oauth2 for google authentication and omniauth-rails_csrf_protection for fixing denied access making a call to google). Action-mailer used for email notifications about reservation being confirmed.
 
 
 Installation instructions:
