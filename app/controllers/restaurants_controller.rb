@@ -25,6 +25,7 @@ class RestaurantsController < ApplicationController
     if @restaurant.valid?
       @restaurant.save
       session[:restaurant_id] = @restaurant.id
+      session[:guest_id] = nil
       redirect_to restaurant_path(@restaurant)
     else
       render :new, layout: 'welcome'

@@ -15,8 +15,7 @@ class GuestsController < ApplicationController
     @guest = Guest.new(guest_params)
     if @guest.valid?
       @guest.save
-      session[:guest_id] = @guest.id
-      redirect_to restaurants_path
+      guest_session
     else
       render :new, layout: 'welcome'
     end
