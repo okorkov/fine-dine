@@ -10,7 +10,7 @@
       <p>Email confirmation was sent to <%=@reservation.guest.email%></p>
       <p>Phone Number <%=cell_format(@reservation.restaurant.phone_number)%></p>
       <%=form_tag guest_reservation_path(@reservation.guest), method:"delete" do %>
-        <%=submit_tag "Cancel", class:"btn btn-danger"%>
+        <%=submit_tag "Cancel Reservation", class:"btn btn-danger"%>
       <%end%>
     </div>
   </div>

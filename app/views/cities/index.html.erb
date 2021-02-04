@@ -3,8 +3,8 @@
     <%@cities.each do |city|%>
     <div class="col-md-3">
       <div class="card text-center">
-        <%=link_to(image_tag(city.picture, size: "340x270"), city_restaurants_path(city),:class=>"card-img-top") if !city.picture.nil? %>
-        <%=link_to(image_tag("https://qph.fs.quoracdn.net/main-qimg-7ca01321e31291c51d280f6b24d0a477.webp", size: "340x270"), city_restaurants_path(city) ,:class=>"card-img-top") if city.picture.nil? %>
+        <%=link_to(image_tag(city.picture, size: "300x270"), city_restaurants_path(city),:class=>"card-img-top") if !city.picture.nil? %>
+        <%=link_to(image_tag("https://qph.fs.quoracdn.net/main-qimg-7ca01321e31291c51d280f6b24d0a477.webp", size: "300x270"), city_restaurants_path(city) ,:class=>"card-img-top") if city.picture.nil? %>
         <div class="card-body">
           <%=link_to city.name.capitalize, city_restaurants_path(city), class:"card-title h2"%>
         </div>

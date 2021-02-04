@@ -1,10 +1,10 @@
-<div class="card">
+<div class="card text-center">
   <div class="card-body">
     <div class="text-center">
       <div class="card-header"> Book this Slot at <%=@restaurant.name%> Restaurant</div><br>
       <h5 class="card-title"><%=@slot.time%></h5>
-      <p class="card-text"><%=date_format(@slot.date)%></p>
-      <p class="card-text"><%=@slot.party_size%> people</p>
+      <p><%=date_format(@slot.date)%></p>
+      <p><%=@slot.party_size%> people</p>
       <%=form_for [@restaurant, @reservation], class:'form-group' do |f|%>
         <%=f.hidden_field :restaurant_id, value: params[:restaurant_id] %>
         <%=f.hidden_field :guest_id, value: session[:guest_id] %>

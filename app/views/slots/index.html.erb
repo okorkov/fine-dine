@@ -4,19 +4,22 @@
 <hr>
 <div class="row">
   <%@slots.sort_by{|s| s.date.to_datetime}.each do |slot|%>
-  <div class="col-md-1">
-    <div class="card">
+  <div class="col-md-2">
+    <div class="card text-center">
       <div class="card-body">
         <h5 class="card-title"><%=slot.time%></h5>
         <p class="card-text"><%=date_format(slot.date)%></p>
         <p class="card-text"><%=slot.party_size%> people</p>
         <%if slot.booked?%>
-          <button type="button" class="btn btn-warning btn-sm" disabled>booked</button>
+          <button type="button" class="btn btn-warning btn-sm" disabled>booked</button><br><br>
+          <%=form_tag "/restaurants/#{current_restaurant.id}/slots/#{slot.id}", method:"delete" do %>
+            <%=submit_tag "cancel", class:"btn btn-danger btn-sm"%>
+          <%end%>
         <%else%>
-          <%=link_to 'Edit', edit_restaurant_slot_path(current_restaurant, slot), class:"btn btn-primary btn-sm"%>
-        <%end%>
-        <%=form_tag "/restaurants/#{current_restaurant.id}/slots/#{slot.id}", method:"delete" do %>
-          <%=submit_tag "delete", class:"btn btn-danger btn-sm"%>
+          <%=link_to 'Edit', edit_restaurant_slot_path(current_restaurant, slot), class:"btn btn-primary btn-sm"%><br><br>
+          <%=form_tag "/restaurants/#{current_restaurant.id}/slots/#{slot.id}", method:"delete" do %>
+            <%=submit_tag "delete", class:"btn btn-danger btn-sm"%>
+         <%end%>
         <%end%>
       </div>
     </div>

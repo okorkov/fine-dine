@@ -1,12 +1,12 @@
 <div class="row">
   <%current_guest.reservations.each do |res|%>
   <div class="col-md-3">
-    <div class="card" style="width: 22rem;">
+    <div class="card text-center" style="width: 22rem;">
       <img class="card-img-top" src="<%=res.restaurant.picture%>" alt="restaurant image" style="height: 18rem;">
       <div class="card-body">
         <h5 class="card-title">Your Reservation at <%=link_to res.restaurant.name, restaurant_path(res.restaurant)%></h5>
-        <p class="card-text">On <%=date_format(res.slot.date)%> at <%=res.slot.time%></p>
-        <p class="card-text">For <%=res.slot.party_size%> People</p>
+        <p>On <%=date_format(res.slot.date)%> at <%=res.slot.time%></p>
+        <p>For <%=res.slot.party_size%> People</p>
         <p><%=res.restaurant.address%>, <%=res.restaurant.city.name%></p>
         <p>Phone Number <%=cell_format(res.restaurant.phone_number)%></p>
         <%=form_tag guest_reservation_path(res.guest, res), method:"delete" do %>

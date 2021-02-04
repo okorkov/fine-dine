@@ -15,7 +15,7 @@
       <div class="card">
         <div class="row">
           <%@restaurant.slots.sort_by{|s| s.date.to_datetime}.each do |slot|%>
-          <div class="col-md-2">
+          <div class="col-md-3">
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title"><%=slot.time%></h5>

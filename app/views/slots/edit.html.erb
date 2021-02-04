@@ -1,17 +1,19 @@
-<div class="display-4 text-center">Edit Slot</div>
-<br>
-<%=form_for [@restaurant,@slot] do |f| %>
-  <%=f.text_field :time, class:"form-control" %>
-  <%=f.text_field :date, class:"form-control" %>
-  <%=f.text_field :party_size, class:"form-control" %>
+<div class="text-center">
+  <div class="display-4">Edit Slot</div>
   <br>
-  <%=f.submit class:"btn btn-primary btn-sm"%>
-<%end%>
+  <%=form_for [@restaurant,@slot] do |f| %>
+    <%=f.text_field :time, class:"form-control" %>
+    <%=f.text_field :date, class:"form-control" %>
+    <%=f.text_field :party_size, class:"form-control" %>
+    <br>
+    <%=f.submit class:"btn btn-primary btn-sm"%>
+  <%end%>
 
-<%=form_tag "/restaurants/#{current_restaurant.id}/slots/#{params[:id]}", method:"delete" do %>
-  <%=submit_tag "delete", class:"btn btn-danger btn-sm"%>
-<%end%>
-
-<div class="text-center display-5">
-  <h3><%=link_to 'All Slots', restaurant_slots_path%></h3>
+  <%=form_tag "/restaurants/#{current_restaurant.id}/slots/#{params[:id]}", method:"delete" do %><br>
+    <%=submit_tag "delete", class:"btn btn-danger btn-sm"%>
+  <%end%>
+  <br>
+  <div class="text-center display-5">
+    <h3><%=link_to 'All Slots', restaurant_slots_path%></h3>
+  </div>
 </div>

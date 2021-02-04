@@ -17,10 +17,15 @@
     <%=render 'layouts/guest_navbar'%>
     <%elsif session[:restaurant_id]%>
     <%=render 'layouts/restaurant_navbar'%>
-    <%end%>
+    <%end%><br><br>
+
+  <div class="container">
+    <div class="box">
 
     <%= yield %>
   
+    </div>
+  </div>
 
      <%=render 'layouts/footer'%>
      
