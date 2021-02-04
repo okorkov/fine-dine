@@ -10,7 +10,7 @@ class Restaurant < ApplicationRecord
   validates :email, :opening_time, :closing_time, :city_id, :phone_number, :address, :picture, :capacity, :name, presence: true
   validates :email, uniqueness: true
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
-  validates :phone_number, length: { is: 10 }
+  validates :phone_number, format: { :with => /\(?[0-9]{3}\)?-[0-9]{3}-[0-9]{4}/, :message => "- Phone numbers must be in xxx-xxx-xxxx format." }
 
   def city_attributes=(attributes)
     if attributes[:id] != ''

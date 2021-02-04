@@ -2,9 +2,9 @@
   <div class="card text-center">
     <%=link_to(image_tag(restaurant.picture, size: "300x270"), restaurant_path(restaurant) ,:class=>"card-img-top") %>
     <div class="card-body">
-      <h5 class="card-title"><%=restaurant.name.capitalize%></h5>
+      <h5 class="card-title"><%=restaurant.name.titleize%></h5>
       <%if params[:city_id].nil?%>
-      <p class="card-text"><%=link_to restaurant.city.name.capitalize, city_restaurants_path(restaurant.city)%></p>
+      <p class="card-text"><%=link_to restaurant.city.name.titleize, city_restaurants_path(restaurant.city)%></p>
       <%end%>
     </div>
   </div>

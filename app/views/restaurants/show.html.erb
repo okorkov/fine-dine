@@ -5,7 +5,7 @@
     <div class="card-body">
       <p class="card-text">Phone Number: <%=cell_format(@restaurant.phone_number)%></p>
       <p class="card-text">Email: <%=@restaurant.email%></p>
-      <p class="card-text">City: <%=link_to @restaurant.city.name.capitalize, city_restaurants_path(@restaurant.city) %></p>
+      <p class="card-text">City: <%=link_to @restaurant.city.name.titleize, city_restaurants_path(@restaurant.city) %></p>
       <p class="card-text">Address: <%=@restaurant.address%></p>
       <p class="card-text">Hours of Operation: from <%=@restaurant.opening_time%> to <%=@restaurant.closing_time%></p>
     </div>
@@ -34,7 +34,7 @@
           <%end%>
         </div>
       </div><br>
-      <h3 style="color:green;" class="text-center"><%="#{@restaurant.name.capitalize}'s reviews:"%></h3>
+      <h3 style="color:green;" class="text-center"><%="#{@restaurant.name.titleize}'s reviews:"%></h3>
       <%@restaurant.reviews.each do |review|%>
         <hr>
         <h4><%="'#{review.content.capitalize}'"%></h4>
