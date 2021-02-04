@@ -7,7 +7,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
+    <ul class="navbar-nav justify-content-between w-100">
       <%=link_to "All Restaurants",restaurants_path, class:"nav-item nav-link active"%>
       <%=link_to "My Restaurant", restaurant_path(current_restaurant), class:"nav-item nav-link"%>
       <%=link_to "My Reservations", restaurant_reservations_path(current_restaurant), class:"nav-item nav-link"%>
@@ -17,7 +17,7 @@
       <%=form_tag "/restaurant_sessions/#{session[:restaurant_id]}", method:'delete', class:"nav-item nav-link" do%>
         <%=submit_tag 'Log Out', class:"btn btn-danger btn-sm"%>
       <%end%>
-    </div>
+    </ul>
   </div>
 </nav>
 
