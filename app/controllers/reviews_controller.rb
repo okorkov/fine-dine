@@ -7,6 +7,12 @@ class ReviewsController < ApplicationController
     redirect_to restaurant_path(review.restaurant)
   end
 
+  def restraurant_with_most_reviews
+    restaurant = Review.most_reviews
+    redirect_to restaurant_path(restaurant)
+    
+  end
+
   private
 
   def review_params

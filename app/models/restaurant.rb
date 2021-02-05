@@ -20,4 +20,8 @@ class Restaurant < ApplicationRecord
     end
   end
 
+  def self.search(parameter)
+    where("lower(name) LIKE :search", search: "%#{parameter}%")
+  end
+
 end

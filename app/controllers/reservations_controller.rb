@@ -10,7 +10,7 @@ class ReservationsController < ApplicationController
       render :restaurant_index
     end
   end
-
+ 
   def create
     reservation = Reservation.create(reservation_params)
     book_slot(reservation, true)

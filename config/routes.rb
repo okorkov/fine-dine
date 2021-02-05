@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root  'welcome#welcome'
   get '/search' => 'restaurants#search', :as => 'search_page'
   get '/most-restaurants' => 'cities#most_restaurants'
+  get '/most-reviews' => "reviews#restraurant_with_most_reviews"
 
   resources :sessions, only: [:new, :create, :destroy]
   resources :guests, only: [:new, :destroy, :edit, :update, :create] do 
