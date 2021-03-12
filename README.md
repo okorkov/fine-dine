@@ -1,6 +1,8 @@
 ________________________________________________________________________________________________________________________
 check it out at https://fine-dine.herokuapp.com/
 
+![preview](/app/assets/images/preview.png?raw=true "Title")
+
 Overview:
   Fine Dine is a restaurants reservation platform that allows guests to explore restaurants and make a reservations if restaurant have slots available. Restaurants also categorized by city so it's easy to browse through all of the restaurants in your city or just look them up by searching. The restaurants on the other hand may also register on the platform and manage slots available for bookings with specific date and time. Guest will receive the email confirmation with details after making reservation.
 
