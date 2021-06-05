@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
   end
 
   def create
+    response.headers['Set-Cookie'] = 'Secure;SameSite=None'
     @guest = Guest.find_by(email: params[:email])
     if @guest.nil?
       @error = "No user with this email found"
