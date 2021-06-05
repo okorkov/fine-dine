@@ -17,6 +17,7 @@
     <br>
       <%=form_tag restaurant_sessions_path, class:'form-group' do%>
       <%=hidden_field_tag :email, 'mourad@mouradsf.com'%>
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
       <%=hidden_field_tag :password, '12345'%>
       <%=submit_tag 'Skip Login (Demo Account)', class: "btn btn-success"%>
     <%end%>
