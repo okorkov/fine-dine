@@ -6,3 +6,5 @@ run Rails.application
 Rails.application.load_server
 
 
+require 'rack/iframe'
+use Rack::Iframe
