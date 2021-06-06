@@ -25,7 +25,9 @@ module ApplicationHelper
   end
 
   def guest_session
-    session[:guest_id] = @guest.id
+    # cookies["foo"] = {value: "bar", same_site: :none, secure: true}
+    # session[:guest_id] = @guest.id
+    session[:guest_id] = {value: @guest.id, same_site: :none, secure: true}
     session[:restaurant_id] = nil
     redirect_to restaurants_path
   end

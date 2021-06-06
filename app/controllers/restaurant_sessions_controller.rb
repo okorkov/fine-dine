@@ -16,7 +16,8 @@ class RestaurantSessionsController < ApplicationController
       render :new
     else
       if authenticate(@restaurant)
-      session[:restaurant_id] = @restaurant.id
+      # session[:restaurant_id] = @restaurant.id
+      session[:restaurant_id] = {value: @restaurant.id, same_site: :none, secure: true}
       session[:guest_id] = nil
       redirect_to restaurant_path(@restaurant)
       else
