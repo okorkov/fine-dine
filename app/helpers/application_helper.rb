@@ -1,5 +1,9 @@
 module ApplicationHelper
 
+  def set_headers
+    response.headers["X-FRAME-OPTIONS"] = "ALLOW-FROM https://aokarkau.com"
+  end
+
   def current_restaurant
     Restaurant.find_by(id: session[:restaurant_id])
   end
