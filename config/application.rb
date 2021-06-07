@@ -21,10 +21,9 @@ module FineDine
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
     config.exceptions_app = self.routes
-    config.action_dispatch.default_headers.clear
-    # config.action_dispatch.default_headers = {
-    #   'X-Frame-Options' => 'ALLOWALL'
-    # }
+    config.action_dispatch.default_headers = {
+      'X-Frame-Options' => 'ALLOWALL'
+    }
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
