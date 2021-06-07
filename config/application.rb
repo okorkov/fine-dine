@@ -24,6 +24,7 @@ module FineDine
     config.action_dispatch.default_headers = {
       'X-Frame-Options' => 'ALLOWALL'
     }
+    config.session_store :cookie_store, key: '_my_domain', domain: :all, tld_length: 2
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
