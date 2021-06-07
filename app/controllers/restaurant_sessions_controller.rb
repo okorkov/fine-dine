@@ -10,6 +10,7 @@ class RestaurantSessionsController < ApplicationController
   end
 
   def create
+    # response.headers['Set-Cookie'] = 'Secure;SameSite=None'
     @restaurant = Restaurant.find_by(email: params[:email])
     if @restaurant.nil?
       @error = "No restaurant with this email found"

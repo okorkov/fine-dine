@@ -21,7 +21,6 @@ class RestaurantsController < ApplicationController
   end
 
   def create
-    response.headers['Set-Cookie'] = 'Secure;SameSite=None'
     @restaurant = Restaurant.new(restaurant_params)
     if @restaurant.valid?
       @restaurant.save

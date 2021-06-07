@@ -18,7 +18,6 @@
     <%=form_tag sessions_path, class:'form-group' do%>
       <%=hidden_field_tag :email, 'demo@finedine.com'%>
       <%=hidden_field_tag :password, '12345'%>
-      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
       <%=submit_tag 'Skip Login (Demo Account)', class: "btn btn-success"%>
     <%end%>
 
