@@ -6,7 +6,9 @@
 
     <br>
     <div class="text-center">
+     <%if current_restaurant.email != 'mourad@mouradsf.com'%>
       <%=form_tag "/restaurants/#{current_restaurant.id}", method:"delete" do %>
         <%=submit_tag "Remove Restaurant From Our Planform", class:"btn btn-danger btn-lg"%>
       <%end%>
+     <%end%>
     </div>
